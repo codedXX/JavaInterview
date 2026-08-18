@@ -113,6 +113,10 @@ def build_story(source: Path, doc_width: float):
     table_rows = []
     in_code = False
     first_heading = True
+    has_heading = any(re.match(r"^#{1,6}\s+", quote_text(line)[0].strip()) for line in raw_lines)
+    if not has_heading:
+        story.extend([Spacer(1, 0.42 * inch), Paragraph(inline(source.stem), style["title"]), Spacer(1, 0.16 * inch)])
+        first_heading = False
 
     def flush_paragraph():
         nonlocal paragraph
