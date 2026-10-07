@@ -206,12 +206,21 @@ def build_story(source: Path, doc_width: float):
         if not stripped:
             flush_paragraph()
             continue
-        list_item = re.match(r"^(\s*)(?:[-*+] |(?:\d+|[①②③④⑤⑥⑦⑧⑨⑩])[.、]?)\s*(.+)$", line)
+        list_item = re.match(
+            r"^(\s*)([-*+]\s+|\d+[.)]\s+|\d+、\s*|[①②③④⑤⑥⑦⑧⑨⑩]\s*)(.+)$",
+            line,
+        )
         if list_item:
             flush_paragraph()
             indent = min(len(list_item.group(1).expandtabs(2)) // 2, 4)
-            bullet_style = ParagraphStyle("IndentedBullet", parent=style["bullet"], leftIndent=17 + indent * 13)
-            story.append(Paragraph("• " + inline(list_item.group(2)), bullet_style))
+            source_marker = list_item.group(2).strip()
+            marker = "• " if source_marker in ("-", "*", "+") else source_marker + " "
+            marker_width = max(11, pdfmetrics.stringWidth(marker, style["bullet"].fontName, style["bullet"].fontSize))
+            bullet_style = ParagraphStyle(
+                "IndentedBullet", parent=style["bullet"],
+                leftIndent=6 + marker_width + indent * 13, firstLineIndent=-marker_width,
+            )
+            story.append(Paragraph(inline(marker + list_item.group(3)), bullet_style))
             continue
         if re.match(r"\*\*(?:面试官|候选人)[：:]?\*\*", stripped) or stripped.startswith("⭐"):
             flush_paragraph()
