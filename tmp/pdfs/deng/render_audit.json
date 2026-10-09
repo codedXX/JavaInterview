@@ -1,0 +1,707 @@
+{
+  "source": "F:\\Projects\\JavaInterview\\12-押题\\邓懿轩-面试押题.md",
+  "output": "F:\\Projects\\JavaInterview\\12-押题\\新邓懿轩-面试押题.pdf",
+  "math": [
+    {
+      "tex": "Q",
+      "display": false
+    },
+    {
+      "tex": "K",
+      "display": false
+    },
+    {
+      "tex": "V",
+      "display": false
+    },
+    {
+      "tex": "Q",
+      "display": false
+    },
+    {
+      "tex": "K",
+      "display": false
+    },
+    {
+      "tex": "Q \\cdot K^T",
+      "display": false
+    },
+    {
+      "tex": "\\sqrt{d}",
+      "display": false
+    },
+    {
+      "tex": "\\sqrt{d}",
+      "display": false
+    },
+    {
+      "tex": "V",
+      "display": false
+    },
+    {
+      "tex": "Q、K、V",
+      "display": false
+    },
+    {
+      "tex": "\\mathrm{RRF}(d)=\\sum_{i:\\,d\\in L_i}\\frac{1}{k+r_i(d)}",
+      "display": true
+    },
+    {
+      "tex": "L_i",
+      "display": false
+    },
+    {
+      "tex": "i",
+      "display": false
+    },
+    {
+      "tex": "r_i(d)",
+      "display": false
+    },
+    {
+      "tex": "k",
+      "display": false
+    },
+    {
+      "tex": "k",
+      "display": false
+    },
+    {
+      "tex": "k",
+      "display": false
+    },
+    {
+      "tex": "k=60",
+      "display": false
+    },
+    {
+      "tex": "1/61\\approx0.0164",
+      "display": false
+    },
+    {
+      "tex": "1/63+1/62\\approx0.0320",
+      "display": false
+    },
+    {
+      "tex": "k",
+      "display": false
+    },
+    {
+      "tex": "\\sum_i w_i/(k+r_i(d))",
+      "display": false
+    },
+    {
+      "tex": "Q \\cdot K",
+      "display": false
+    },
+    {
+      "tex": "Q \\cdot K^T",
+      "display": false
+    },
+    {
+      "tex": "\\sqrt{d}",
+      "display": false
+    },
+    {
+      "tex": "\\sqrt{d}",
+      "display": false
+    },
+    {
+      "tex": "\\sqrt{d}",
+      "display": false
+    },
+    {
+      "tex": "\\sqrt{d}",
+      "display": false
+    },
+    {
+      "tex": "O(n^2)",
+      "display": false
+    },
+    {
+      "tex": "N",
+      "display": false
+    },
+    {
+      "tex": "N \\times N = N^2",
+      "display": false
+    },
+    {
+      "tex": "100000 \\times 100000 = 100 亿",
+      "display": false
+    },
+    {
+      "tex": "d",
+      "display": false
+    },
+    {
+      "tex": "Q",
+      "display": false
+    },
+    {
+      "tex": "K",
+      "display": false
+    },
+    {
+      "tex": "d",
+      "display": false
+    },
+    {
+      "tex": "Q",
+      "display": false
+    },
+    {
+      "tex": "K",
+      "display": false
+    },
+    {
+      "tex": "Q",
+      "display": false
+    },
+    {
+      "tex": "K",
+      "display": false
+    },
+    {
+      "tex": "d = 64",
+      "display": false
+    },
+    {
+      "tex": "d = 128",
+      "display": false
+    },
+    {
+      "tex": "d",
+      "display": false
+    },
+    {
+      "tex": "d",
+      "display": false
+    },
+    {
+      "tex": "d",
+      "display": false
+    },
+    {
+      "tex": "d = xxxx",
+      "display": false
+    },
+    {
+      "tex": "d",
+      "display": false
+    },
+    {
+      "tex": "\\mathbf{d = \\frac{大模型的总身宽（Hidden\\ Size）}{注意力头的数量（Heads）}}",
+      "display": true
+    },
+    {
+      "tex": "d = 512 \\div 8 = 64",
+      "display": true
+    },
+    {
+      "tex": "d = 64",
+      "display": false
+    },
+    {
+      "tex": "d = 4096 \\div 32 = 128",
+      "display": true
+    },
+    {
+      "tex": "d = 128",
+      "display": false
+    },
+    {
+      "tex": "d",
+      "display": false
+    },
+    {
+      "tex": "Q",
+      "display": false
+    },
+    {
+      "tex": "K",
+      "display": false
+    },
+    {
+      "tex": "Q \\cdot K^T",
+      "display": false
+    },
+    {
+      "tex": "d",
+      "display": false
+    },
+    {
+      "tex": "Q \\cdot K^T",
+      "display": false
+    },
+    {
+      "tex": "d = 64",
+      "display": false
+    },
+    {
+      "tex": "Q \\cdot K^T = (q_1 \\times k_1) + (q_2 \\times k_2) + (q_3 \\times k_3) + \\dots + (q_{64} \\times k_{64})",
+      "display": true
+    },
+    {
+      "tex": "d",
+      "display": false
+    },
+    {
+      "tex": "d=2",
+      "display": false
+    },
+    {
+      "tex": "d",
+      "display": false
+    },
+    {
+      "tex": "\\sqrt{d}",
+      "display": false
+    },
+    {
+      "tex": "d",
+      "display": false
+    },
+    {
+      "tex": "d",
+      "display": false
+    },
+    {
+      "tex": "\\sqrt{d}",
+      "display": false
+    },
+    {
+      "tex": "d",
+      "display": false
+    },
+    {
+      "tex": "d = 64",
+      "display": false
+    },
+    {
+      "tex": "\\sqrt{d} = \\sqrt{64} = 8 \\text{ 倍！}",
+      "display": true
+    },
+    {
+      "tex": "\\frac{Q \\cdot K^T}{\\sqrt{d}} = \\frac{总分}{8}",
+      "display": true
+    },
+    {
+      "tex": "d = 512 \\div 8 = 64",
+      "display": false
+    },
+    {
+      "tex": "Q",
+      "display": false
+    },
+    {
+      "tex": "K",
+      "display": false
+    },
+    {
+      "tex": "Q \\cdot K^T",
+      "display": false
+    },
+    {
+      "tex": "\\sqrt{64} = 8",
+      "display": false
+    },
+    {
+      "tex": "\\sqrt{64}",
+      "display": false
+    },
+    {
+      "tex": "Q \\cdot K^T",
+      "display": false
+    },
+    {
+      "tex": "\\sqrt{d}",
+      "display": false
+    },
+    {
+      "tex": "Q \\cdot K^T",
+      "display": false
+    },
+    {
+      "tex": "Q",
+      "display": false
+    },
+    {
+      "tex": "K",
+      "display": false
+    },
+    {
+      "tex": "(q_1 \\times k_1) + (q_2 \\times k_2) + \\dots + (q_{64} \\times k_{64})",
+      "display": true
+    },
+    {
+      "tex": "\\sqrt{d}",
+      "display": false
+    },
+    {
+      "tex": "\\frac{72}{\\sqrt{64}} = \\frac{72}{8} = \\mathbf{9 \\text{ 分}}",
+      "display": true
+    },
+    {
+      "tex": "e^{72}",
+      "display": false
+    },
+    {
+      "tex": "e^{72} \\approx 1.7 \\times 10^{31}",
+      "display": false
+    },
+    {
+      "tex": "总分 = 3.0 + 1.0 + 0.1 = 4.1",
+      "display": false
+    },
+    {
+      "tex": "3.0 \\div 4.1 \\approx 73\\%",
+      "display": false
+    },
+    {
+      "tex": "1.0 \\div 4.1 \\approx 24\\%",
+      "display": false
+    },
+    {
+      "tex": "e",
+      "display": false
+    },
+    {
+      "tex": "x",
+      "display": false
+    },
+    {
+      "tex": "e^x",
+      "display": false
+    },
+    {
+      "tex": "e^{-2} \\approx 0.135",
+      "display": false
+    },
+    {
+      "tex": "\\rightarrow",
+      "display": false
+    },
+    {
+      "tex": "e^{3.0} \\approx \\mathbf{20.08}",
+      "display": false
+    },
+    {
+      "tex": "\\rightarrow",
+      "display": false
+    },
+    {
+      "tex": "e^{1.0} \\approx \\mathbf{2.72}",
+      "display": false
+    },
+    {
+      "tex": "\\rightarrow",
+      "display": false
+    },
+    {
+      "tex": "e^{0.1} \\approx \\mathbf{1.10}",
+      "display": false
+    },
+    {
+      "tex": "总池子 = 20.08 + 2.72 + 1.10 = \\mathbf{23.9}",
+      "display": true
+    },
+    {
+      "tex": "20.08 \\div 23.9 \\approx \\mathbf{84.0\\%}",
+      "display": false
+    },
+    {
+      "tex": "2.72 \\div 23.9 \\approx \\mathbf{11.4\\%}",
+      "display": false
+    },
+    {
+      "tex": "1.10 \\div 23.9 \\approx \\mathbf{4.6\\%}",
+      "display": false
+    },
+    {
+      "tex": "84.0\\% + 11.4\\% + 4.6\\% = \\mathbf{100\\%}",
+      "display": false
+    },
+    {
+      "tex": "\\text{打出来的各个分数} \\xrightarrow{\\text{算 } e \\text{ 的次方}} \\text{全变成正数且放大优势} \\xrightarrow{\\text{除以总和}} \\mathbf{变成相加等于 100\\% 的百分比权重}",
+      "display": true
+    },
+    {
+      "tex": "O(1)",
+      "display": false
+    }
+  ],
+  "codeBlocks": [
+    {
+      "lang": "",
+      "text": "system：回答规则……\n      \n检索到的历史信息：\n用户之前说过，项目使用 Java 17。\n      \n最近 5 轮聊天：\n……\n      \n当前问题：\n这个功能在我的 Java 版本里能用吗？"
+    },
+    {
+      "lang": "java",
+      "text": "public WeatherResponse getWeather(String cityName, int days) { ... }"
+    },
+    {
+      "lang": "json",
+      "text": "{\n  \"name\": \"get_weather\",\n  \"description\": \"查询指定城市的天气预报\",\n  \"parameters\": {\n    \"type\": \"object\",\n    \"properties\": {\n      \"city\": {\n        \"type\": \"string\",\n        \"description\": \"城市名称，例如：北京、上海\"\n      },\n      \"unit\": {\n        \"type\": \"string\",\n        \"enum\": [\"celsius\", \"fahrenheit\"],\n        \"description\": \"温度单位，摄氏度或华氏度\"\n      }\n    },\n    \"required\": [\"city\"]\n  }\n}"
+    },
+    {
+      "lang": "json",
+      "text": "{\n  \"tool_calls\": [\n    {\n      \"name\": \"get_weather\",\n      \"arguments\": \"{\\\"city\\\": \\\"北京\\\"}\"\n    }\n  ]\n}"
+    },
+    {
+      "lang": "text",
+      "text": "用户：北京明天天气如何？\n   │\n   ▼\n【你的系统 (Java/Python)】 ──把问题和工具Schema传给模型──► 【大模型】\n                                                               │\n                                         模型发现需要调工具，输出 JSON：\n                                         {\"tool\": \"get_weather\", \"city\": \"北京\"}\n                                                               │\n【你的系统】 ◄─────── 收到工具名+参数（非自然语言） ────────────┘\n   │\n   ├─► 调用外部真实天气 API ──► 拿到结果: {\"temp\": \"25℃\", \"weather\": \"晴\"}\n   │\n   ▼\n【你的系统】 ──把API结果拼进对话历史，重新发给模型(回灌)──► 【大模型】\n                                                               │\n                                                  模型看到结果，组织最终语言：\n                                                  \"北京明天晴，25℃\"\n                                                               │\n【你的系统】 ◄────────── 拿到最终回答 ────────────────────────┘\n   │\n   ▼\n返回给用户：北京明天天气晴朗，气温 25℃。"
+    },
+    {
+      "lang": "",
+      "text": "任务成功率 = 成功完成的任务数 ÷ 被评估的任务总数"
+    },
+    {
+      "lang": "",
+      "text": "工具选择准确率 = 正确选择工具的调用次数 ÷ 被评估的工具调用总次数"
+    },
+    {
+      "lang": "",
+      "text": "用户：我用的是 Java 17。\nAI：好的。\n用户：给我写一个线程池示例。"
+    },
+    {
+      "lang": "",
+      "text": "@Service\npublic class ChatService {\n\n    // 多个请求共享这个字段\n    private String currentUser;\n\n    public String chat(String userId, String question) {\n        currentUser = userId;\n        return searchAndAnswer(currentUser, question);\n    }\n}"
+    },
+    {
+      "lang": "",
+      "text": "A 请求：currentUser = \"A\"\n        ↓ 线程切换\nB 请求：currentUser = \"B\"\n        ↓ A 继续执行\nA 请求：读取 currentUser，结果读到 \"B\"\n        → 按 B 的身份检索资料"
+    },
+    {
+      "lang": "",
+      "text": "public String chat(String userId, String question) {\n    // 每次检索返回属于本次请求的独立结果\n    var documents = search(userId, question);\n\n    return answer(question, documents);\n}"
+    },
+    {
+      "lang": "",
+      "text": "chat:memory:用户A:会话1 → A 的第一段会话\nchat:memory:用户A:会话2 → A 的第二段会话\nchat:memory:用户B:会话1 → B 的会话"
+    },
+    {
+      "lang": "java",
+      "text": "@Service\npublic class ChatService {\n    // 错误！这是单例 Bean 的成员变量，所有并发请求共享这几个字段！\n    private String currentUserId;\n    private List<String> ragDocuments;\n\n    public String askAi(String query, String userId) {\n        this.currentUserId = userId; // 线程 A 赋值: \"张三\"\n        this.ragDocuments = searchVectorStore(query); // 线程 A 检索出张三的私密数据\n        \n        // 【致命等待区】：调用大模型需要耗时 3~5 秒！\n        // 此时线程 B（李四）进来了，执行了 this.currentUserId = \"李四\"，并覆盖了 ragDocuments！\n        String answer = callLlm(query, this.ragDocuments); \n        \n        // 此时打印出来的 currentUserId 已经变成李四了，甚至大模型吐出的回答被发给了李四！\n        return answer;\n    }\n}"
+    },
+    {
+      "lang": "java",
+      "text": "@Service\npublic class ChatService {\n    // 不声明任何有状态的成员变量！\n\n    public String askAi(String query, String userId) {\n        // 数据存放在当前线程私有的 JVM 方法栈帧中，线程间物理隔离\n        List<String> userRagDocs = searchVectorStore(query); \n        \n        // 无论等多久，userRagDocs 都只有当前线程自己能访问\n        return callLlm(query, userRagDocs); \n    }\n}"
+    }
+  ],
+  "layout": {
+    "headings": [
+      "邓懿轩 · 面试押题",
+      "A. 八股 / 基础原理题 共 77 题",
+      "方向一：AI Agent / 大模型 / RAG / 应用框架（A1，共 34 题）",
+      "【A1-01】【L1】Token、Embedding 与上下文窗口",
+      "【A1-02】【L2】Transformer 自注意力机制",
+      "【A1-03】【L2】微调 vs RAG vs Prompt 怎么选",
+      "【A1-04】【L3】幻觉成因与抑制",
+      "【A1-05】【L3】推理性能优化：KV Cache 与量化",
+      "【A1-06】【L1】对话式 Agent 与 Function Calling 基础",
+      "【A1-07】【L2】ReAct 推理框架原理",
+      "【A1-08】【L2】Plan-and-Execute 与 ReAct 对比",
+      "【A1-09】【L3】多 Agent 编排模式（AgentScope）",
+      "【A1-10】【L2】Agent 持久化记忆机制",
+      "【A1-11】【L3】低置信兜底与人工接管设计",
+      "【A1-12】【L2】Agent 效果评估指标",
+      "【A1-13】【L1】RAG 全链路",
+      "追问 1：哪一步对最终效果影响最大？",
+      "追问 2：文档更新后怎么做增量同步？",
+      "【A1-14】【L2】分块策略：语义分块与父子文档",
+      "【A1-15】【L2】Query Rewrite 与 HyDE",
+      "【A1-16】【L1】向量检索 vs BM25 关键词检索",
+      "【A1-17】【L2】混合召回与 RRF 融合",
+      "【A1-18】【L2】Rerank 重排序：cross-encoder vs bi-encoder",
+      "【A1-19】【L3】HNSW 向量索引原理与参数调优  （跳过了）",
+      "【A1-20】【L2】Milvus / FAISS / PGVector 选型",
+      "【A1-21】【L3】知识库权限隔离与多租户",
+      "【A1-22】【L2】RAGAS 评测：Recall@K / MRR / Faithfulness",
+      "【A1-23】【L3】分块参数实验与 Badcase 全链路归因",
+      "【A1-24】【L1】Spring AI / Spring AI Alibaba / LangChain4j 定位",
+      "【A1-25】【L2】LangChain4j 核心组件：@Tool 与 ChatMemory",
+      "【A1-26】【L3】自定义 EmbeddingStore 与并发会话隔离",
+      "【A1-27】【L2】MCP 模型上下文协议",
+      "【A1-28】【L3】MCP 与 Function Calling 的区别",
+      "【A1-29】【L2】Dify / Coze 平台与工作流编排",
+      "【A1-30】【L3】Agent 框架选型决策",
+      "【A1-31】【L1】SSE 流式输出原理",
+      "【A1-32】【L3】SSE 高并发、断线重连与背压",
+      "【A1-33】【L3】Text2SQL 实现与安全",
+      "【A1-34】【L3】Prompt 注入与 Agent 安全防护",
+      "方向二：Java 后端与微服务（A2，共 29 题）",
+      "【A2-01】【L1】HashMap 底层原理(跳过了)",
+      "【A2-02】【L2】线程池参数与执行流程",
+      "【A2-03】【L2】synchronized 锁升级(我跳过了)",
+      "【A2-04】【L2】volatile 与 JMM(我跳过了)",
+      "【A2-05】【L2】AQS 原理(我跳过了)",
+      "【A2-06】【L2】ConcurrentHashMap 并发安全实现(暂时跳过了)",
+      "【A2-07】【L1】JVM 内存结构(暂时跳过了)",
+      "【A2-08】【L3】GC 调优与线上 OOM / CPU 飙高排查",
+      "【A2-09】【L1】Spring IoC 与 AOP",
+      "【A2-10】【L2】Bean 生命周期与循环依赖三级缓存",
+      "【A2-11】【L2】事务传播行为与 @Transactional 失效",
+      "【A2-12】【L2】MyBatis 原理与插件机制",
+      "【A2-13】【L2】Spring Boot 自动配置原理",
+      "【A2-14】【L1】设计模式实战",
+      "【A2-15】【L2】MySQL B+ 树索引与最左匹配",
+      "【A2-16】【L2】MVCC 与事务隔离级别",
+      "【A2-17】【L3】慢 SQL 优化与死锁排查",
+      "【A2-18】【L1】缓存穿透、击穿、雪崩",
+      "【A2-19】【L2】缓存与数据库一致性",
+      "【A2-20】【L2】分布式锁与 Redisson 看门狗",
+      "【A2-21】【L2】Redis 主从读写分离与高可用",
+      "【A2-22】【L3】大 key / 热 key 治理",
+      "【A2-23】【L2】Nacos 注册与配置中心",
+      "【A2-24】【L2】OpenFeign 原理",
+      "【A2-25】【L2】Gateway 路由、过滤器与限流",
+      "【A2-26】【L2】Sentinel 熔断降级与限流算法",
+      "【A2-27】【L3】分布式事务方案",
+      "【A2-28】【L2】RabbitMQ 可靠投递、幂等与延迟队列",
+      "【A2-29】【L3】消息积压排查与高可用原理",
+      "方向三：Python AI 应用开发（A3，共 6 题）",
+      "【A3-01】【L2】Python 异步编程与 GIL",
+      "【A3-02】【L2】LangChain 核心抽象",
+      "【A3-03】【L2】LangGraph 状态、节点、边与条件路由",
+      "【A3-04】【L3】LangGraph Checkpointer 与人工介入",
+      "【A3-05】【L2】Celery 异步任务与接口限流降级",
+      "【A3-06】【L2】微调：SFT / LoRA / QLoRA（非必背，看个人情况选择）",
+      "方向四：前端工程化与全栈（A4，共 8 题）",
+      "【A4-01】【L2】Vue3 响应式原理",
+      "【A4-02】【L1】虚拟 DOM 与 diff",
+      "【A4-03】【L2】首屏性能优化体系",
+      "【A4-04】【L2】瀑布流组件实现",
+      "【A4-05】【L1】IntersectionObserver 与懒加载",
+      "【A4-06】【L2】Render 函数动态 VNode 与命令式组件",
+      "【A4-07】【L2】Webpack 构建优化",
+      "【A4-08】【L2】小程序性能与多接口并发",
+      "B. 项目深挖题 共 17 题",
+      "项目一：企业智能问答 Agent（B1，5 题）",
+      "【B1-01】【L3】为什么用\"混合召回 + RRF + Rerank\"三件套",
+      "【B1-02】【L3】语义分块 + 父子文档的参数与\"85% 一次答准率\"的口径",
+      "【B1-03】【L2】\"平均检索响应延迟控制在 2s 以内\"怎么做到的",
+      "【B1-04】【L2】Function Calling 打通线上代码仓库 + MCP 接入层",
+      "【B1-05】【L3】ReAct + Plan-and-Execute + 持久化记忆如何协同",
+      "项目二：企业 ERP 综合管理系统（B2，4 题）",
+      "【B2-01】【L2】订单查询 1s → 300ms：线程池并行 + Future 汇总",
+      "【B2-02】【L2】批量发货异步任务与失败重试",
+      "【B2-03】【L3】多口径指标一致性（订单金额/签收业绩/财务利润）",
+      "【B2-04】【L2】Redis 主从读写分离在 ERP 的落地与坑",
+      "项目三：美容美体网电商平台（B3，4 题）",
+      "【B3-01】【L3】\"按商品 ID 加锁 + 二次检查\"解决缓存击穿",
+      "【B3-02】【L2】下单接口限流降级：Redis 原子计数 + 429",
+      "【B3-03】【L3】强制刷新分流 + 鉴权，避免\"删缓存-重新回源\"风暴",
+      "【B3-04】【L2】优惠券/满额赠品/藏宝岛分支的交易逻辑",
+      "项目四：自研组件库（B4，2 题）",
+      "【B4-01】【L2】组件库 0-1 建设：20+ 组件沉淀与私有 npm 发布",
+      "【B4-02】【L2】虚拟任务栈 + KeepAlive 模拟 APP 跳转",
+      "项目五：一番赏 ONLINE（B5，2 题）",
+      "【B5-01】【L2】Sentry + 自定义埋点数据体系",
+      "【B5-02】【L2】访问速度提升 1.3s 与 blurify 差分、多端适配",
+      "C. 场景 / 系统设计题 共 4 题",
+      "【C-01】【L3】设计企业级多租户 RAG 知识问答平台",
+      "【C-02】【L3】设计支撑 1000+ 并发、首 token < 300ms 的 AI 客服系统",
+      "【C-03】【L3】设计对话式数据分析（Text2SQL）助手",
+      "【C-04】【L3】设计千万级文档的入库 Pipeline（含增量更新）",
+      "E. 非技术类问题 共 10 题",
+      "【E-01】【L1】自我介绍（前端 5 年 → AI Agent 方向）",
+      "【E-02】【L2】为什么从前端转 AI Agent 方向",
+      "【E-03】【L2】离职原因",
+      "【E-04】【L1】职业规划",
+      "【E-05】【L2】最有挑战的项目与如何解决",
+      "【E-06】【L2】技术选型分歧怎么处理",
+      "【E-07】【L2】抗压能力与线上故障处理",
+      "【E-08】【L2】跨岗位协作与需求冲突",
+      "【E-09】【L3】应对\"技能太杂、深度不够\"的质疑",
+      "【E-10】【L2】期望薪资（17k-20k）与反问环节",
+      "我的问题",
+      "上下文窗口",
+      "套餐一：青铜版 —— 仅用【滑动窗口截断】",
+      "套餐二：白银版（业界最常用）——【滑动窗口 + 摘要压缩】",
+      "套餐三：黄金版 ——【滑动窗口 + 向量记忆】",
+      "套餐四：王者版（豪华全家桶）——【窗口 + 摘要 + 向量 全上】",
+      "总结：你怎么选？",
+      "Transformer 自注意力机制",
+      "第一步：先看英文单词 “Query” 是什么意思？",
+      "第二步：为什么句子里的词，也要“去搜索”？",
+      "第三步：再回来看“它”这个词",
+      "第四步：搜索匹配是怎么发生的？（把 Q 和 K 串起来）",
+      "一句话总结",
+      "【A1-02】【L2】Transformer 自注意力机制 完整白话精讲",
+      "阶段一：这道面试题到底在问什么？",
+      "阶段二：零件 1 —— 自注意力机制与 Q / K / V",
+      "1. 为什么句子里的词，要“去搜索”？",
+      "2. 什么是 Q、K、V？（以“它”和“苹果”为例）",
+      "① Q（Query，搜索请求 / 提需求）",
+      "② K（Key，标签索引 / 商品标签）",
+      "③ V（Value，真实干货内容）",
+      "3. 参考答案里的那一串公式，到底在干什么？",
+      "阶段三：零件 2 —— 多头注意力（Multi-Head Attention）",
+      "白话理解：",
+      "阶段四：零件 3 —— 为什么需要位置编码（Positional Encoding）？",
+      "白话理解：",
+      "解决办法：",
+      "阶段五：评分要点与常见追问解读",
+      "1. 面试官的评分卡",
+      "2. 常见追问大白话解答",
+      "第一步：Q 和 K 根本不是一个单一数字，而是一排数组！",
+      "第二步：这个 d 到底是怎么算出来的？有公式吗？",
+      "案例 1：原版经典的 Transformer 论文",
+      "案例 2：现代大家常用的开源大模型（如 LLaMA-7B）",
+      "第三步：为什么算 Q⋅KT 的时候，d 会突然跳出来？",
+      "第四步：为什么偏偏要除以 d（根号 d）？",
+      "总结全流程链路",
+      "为什么这一步除以 8 这么神？",
+      "第一步：先纠正一个小误区 ——“9分”不是孤独的一个人",
+      "第二步：为什么不能直接小学数学除以总分？",
+      "第三步：大模型的终极武器 —— Softmax 公式两步走",
+      "第 1 步：用神奇数字 e（约等于 2.718）算指数，消灭负数并拉开差距",
+      "第 2 步：求和算占比（归一化）",
+      "总结一句话",
+      "推理性能优化：KV Cache 与量化",
+      "1. 什么是 KV Cache？（草稿本 / 备忘录）",
+      "2. 什么是 INT8 / INT4？（把高清图压成标清图 / 四舍五入）",
+      "3. 什么是 GPTQ 和 AWQ？（两种“聪明的压缩算法”）",
+      "① GPTQ（逐层补偿法 / 修图大师）",
+      "② AWQ（保核心 VIP 法 / 抓主要矛盾）",
+      "快速总结表（面试/通俗背诵版）",
+      "Function Calling 基础",
+      "一、这里的 Schema 是什么？",
+      "二、拆解那句读不懂的话",
+      "步骤 1：模型判断需要调用时输出结构化的工具名+参数（而非自然语言）",
+      "步骤 2：系统执行后把结果作为新一轮上下文回灌模型",
+      "步骤 3：直到模型给出最终答案",
+      "三、全流程图解（一目了然）",
+      "面试时的精简回答模板（自然不拗口）",
+      "多 Agent 编排模式（AgentScope）",
+      "Agent 效果评估指标",
+      "Rerank 重排序：cross-encoder vs bi-encoder",
+      "一、这是什么意思？（核心概念通俗拆解）",
+      "二、面试如何回答？（优秀候选人模板）",
+      "1. 结构与原理区别（展现算法底蕴）",
+      "2. 为什么要“先召回后精排”？（体现架构思维）",
+      "3. 生产实践与选型经验（体现落地能力，拿高分关键）",
+      "三、常考追问拆解（提前准备，反客为主）",
+      "追问 1：Rerank 让延迟涨了 150~200ms，真的值得吗？怎么权衡？",
+      "追问 2：多路召回（向量召回 + 关键词召回 BM25）的结果需要先融合再重排吗？",
+      "分块参数实验与 Badcase 全链路归因",
+      "LangChain4j 核心组件：@Tool 与 ChatMemory",
+      "并发会话隔离",
+      "一、 核心痛点：为什么把“上下文”存成员变量，AI 应用必然串话？",
+      "1. 生活化比喻：会议室白板 vs 个人随身笔记本",
+      "2. 代码对比：错在哪？怎么改？",
+      "❌ 致命错误写法（必然串话）：",
+      "为什么传统 CRUD 业务没暴露，AI 应用一上线 100% 暴雷？",
+      "正确写法（栈封闭 / 局部变量）："
+    ],
+    "tables": 7,
+    "codes": 14,
+    "maths": 107,
+    "mathErrors": [],
+    "overflow": [],
+    "fonts": "loaded",
+    "tail": "量，因为时间极短，两个并发请求精准撞在一起的概率很小，测试环境根本测不出来。\nAI 应用：检索向量库 + 联网搜索 + 大模型流式吐字，通常需要 2,000 ~ 10,000 毫秒（2~10秒）！这个“时间窗口”被放大了上千倍，高并发下并发请求重叠率是 100%，只要有 2 个人同时提问，必定产生数据覆盖与串话！\n\n正确写法（栈封闭 / 局部变量）：\n@Service\npublic class ChatService {\n    // 不声明任何有状态的成员变量！\n\n    public String askAi(String query, String userId) {\n        // 数据存放在当前线程私有的 JVM 方法栈帧中，线程间物理隔离\n        List<String> userRagDocs = searchVectorStore(query); \n        \n        // 无论等多久，userRagDocs 都只有当前线程自己能访问\n        return callLlm(query, userRagDocs); \n    }\n}\n\n"
+  },
+  "errors": []
+}
