@@ -429,12 +429,20 @@
     {
       "tex": "O(1)",
       "display": false
+    },
+    {
+      "tex": "\\rightarrow",
+      "display": false
+    },
+    {
+      "tex": "\\rightarrow",
+      "display": false
     }
   ],
   "codeBlocks": [
     {
       "lang": "",
-      "text": "system：回答规则……\n      \n检索到的历史信息：\n用户之前说过，项目使用 Java 17。\n      \n最近 5 轮聊天：\n……\n      \n当前问题：\n这个功能在我的 Java 版本里能用吗？"
+      "text": "system：回答规则……\n               \n检索到的历史信息：\n用户之前说过，项目使用 Java 17。\n               \n最近 5 轮聊天：\n……\n               \n当前问题：\n这个功能在我的 Java 版本里能用吗？"
     },
     {
       "lang": "java",
@@ -459,6 +467,14 @@
     {
       "lang": "",
       "text": "工具选择准确率 = 正确选择工具的调用次数 ÷ 被评估的工具调用总次数"
+    },
+    {
+      "lang": "",
+      "text": "                    ┌── 1. 标准答案 (Reference Answer) ──── 评测【生成器 LLM】\n一条标注用例包含 ────┤\n                    └── 2. 应命中的文档/片段 (Gold Chunks) ─ 评测【检索器 Retriever】"
+    },
+    {
+      "lang": "json",
+      "text": "{\n  \"id\": \"case_00128\",\n  \"category\": \"长尾问题\",\n  \"question\": \"如果在试用期内离职，年假折算天数怎么算？未休完会补工资吗？\",\n  \"ground_truth_context_ids\": [\n    \"doc_hr_policy_chunk_42\",\n    \"doc_employee_handbook_chunk_15\"\n  ],\n  \"ground_truth_context_texts\": [\n    \"试用期员工离职时，年假按照当年在职日历天数折算，公式为：(当年在职天数 ÷ 365) × 全年应休年假天数...\",\n    \"因员工本人原因离职未休完的年休假，公司不作经济补偿。\"\n  ],\n  \"ground_truth_answer\": \"试用期离职年假按当年在职天数折算：(当年在职天数 ÷ 365) × 全年应休天数。若因员工个人原因提出离职，未休完的年假不进行现金补偿。\"\n}"
     },
     {
       "lang": "",
@@ -487,6 +503,14 @@
     {
       "lang": "java",
       "text": "@Service\npublic class ChatService {\n    // 不声明任何有状态的成员变量！\n\n    public String askAi(String query, String userId) {\n        // 数据存放在当前线程私有的 JVM 方法栈帧中，线程间物理隔离\n        List<String> userRagDocs = searchVectorStore(query); \n        \n        // 无论等多久，userRagDocs 都只有当前线程自己能访问\n        return callLlm(query, userRagDocs); \n    }\n}"
+    },
+    {
+      "lang": "java",
+      "text": "public class OrderService {\n    // OrderService 自己负责寻找并 new 出具体的依赖实现\n    private PaymentService paymentService = new WechatPaymentServiceImpl();\n}"
+    },
+    {
+      "lang": "java",
+      "text": "@Test\nvoid testOrder() {\n    PaymentService mockPay = Mockito.mock(PaymentService.class);\n    OrderService service = new OrderService(mockPay); // 轻松注入假对象测试业务逻辑\n    service.createOrder();\n}"
     }
   ],
   "layout": {
@@ -540,7 +564,7 @@
       "【A2-07】【L1】JVM 内存结构(暂时跳过了)",
       "【A2-08】【L3】GC 调优与线上 OOM / CPU 飙高排查",
       "【A2-09】【L1】Spring IoC 与 AOP",
-      "【A2-10】【L2】Bean 生命周期与循环依赖三级缓存",
+      "【A2-10】【L2】Bean 生命周期与循环依赖三级缓存(我跳过了)",
       "【A2-11】【L2】事务传播行为与 @Transactional 失效",
       "【A2-12】【L2】MyBatis 原理与插件机制",
       "【A2-13】【L2】Spring Boot 自动配置原理",
@@ -685,6 +709,20 @@
       "三、常考追问拆解（提前准备，反客为主）",
       "追问 1：Rerank 让延迟涨了 150~200ms，真的值得吗？怎么权衡？",
       "追问 2：多路召回（向量召回 + 关键词召回 BM25）的结果需要先融合再重排吗？",
+      "RAGAS **评测：**Recall@K / MRR / Faithfulness",
+      "一、逐句深度拆解",
+      "1. “从业务真实问题抽样” —— 解决“考题从哪来”的问题",
+      "2. “人工标注 ground truth（标准答案 + 应命中的文档/片段）” —— 解决“判卷标准”的问题",
+      "3. “覆盖高频、长尾、边界（无答案）三类问题” —— 解决“考卷结构与难度”的问题",
+      "4. “定期回归” —— 解决“体系如何持续运转”的问题",
+      "二、一条标准的评测集数据结构示例（JSON）",
+      "三、从 0 到 1 的实操建议步骤",
+      "Faithfulness 的值多少为最好",
+      "1. 工业界实际生产基准线（Benchmark）",
+      "2. 为什么实际项目中很难（也不必）追求绝对的 1.0？",
+      "① LLM 裁判自身存在“误判噪声（Judge Noise）”",
+      "② 盲目追求 1.0 会带来严重的“系统副作用（过度拒答）”",
+      "3. 如何把 Faithfulness 稳定提升到 0.9 以上？",
       "分块参数实验与 Badcase 全链路归因",
       "LangChain4j 核心组件：@Tool 与 ChatMemory",
       "并发会话隔离",
@@ -693,15 +731,25 @@
       "2. 代码对比：错在哪？怎么改？",
       "❌ 致命错误写法（必然串话）：",
       "为什么传统 CRUD 业务没暴露，AI 应用一上线 100% 暴雷？",
-      "正确写法（栈封闭 / 局部变量）："
+      "正确写法（栈封闭 / 局部变量）：",
+      "Spring IoC 与 AOP",
+      "一、前半句：“对象创建与依赖装配交给容器” —— 到底“反转”了什么？",
+      "1. 传统开发（正向控制）",
+      "2. IoC 容器接管（反转控制）",
+      "二、中半句：“通过构造器/字段/Setter 注入” —— 依赖怎么送进去？",
+      "三、后半句：“降低耦合、便于测试与替换实现” —— 这样做的核心收益是什么？",
+      "1. 降低耦合（Decoupling & 迪米特法则）",
+      "2. 便于测试（Testability）",
+      "3. 灵活替换实现（Pluggability）",
+      "面试回答模板建议（如何把这句话说出高级感）"
     ],
-    "tables": 7,
-    "codes": 14,
-    "maths": 107,
+    "tables": 10,
+    "codes": 18,
+    "maths": 109,
     "mathErrors": [],
     "overflow": [],
     "fonts": "loaded",
-    "tail": "量，因为时间极短，两个并发请求精准撞在一起的概率很小，测试环境根本测不出来。\nAI 应用：检索向量库 + 联网搜索 + 大模型流式吐字，通常需要 2,000 ~ 10,000 毫秒（2~10秒）！这个“时间窗口”被放大了上千倍，高并发下并发请求重叠率是 100%，只要有 2 个人同时提问，必定产生数据覆盖与串话！\n\n正确写法（栈封闭 / 局部变量）：\n@Service\npublic class ChatService {\n    // 不声明任何有状态的成员变量！\n\n    public String askAi(String query, String userId) {\n        // 数据存放在当前线程私有的 JVM 方法栈帧中，线程间物理隔离\n        List<String> userRagDocs = searchVectorStore(query); \n        \n        // 无论等多久，userRagDocs 都只有当前线程自己能访问\n        return callLlm(query, userRagDocs); \n    }\n}\n\n"
+    "tail": "er();\n}\n\n\n3. 灵活替换实现（Pluggability）\n\n结合 Spring 的条件注解（@Profile、@ConditionalOnProperty、@Qualifier 等），可以极其平滑地切换实现：\n按环境切换：本地开发环境注入 MockEmailService，生产环境注入 AliyunEmailService。\n按多租户切换：根据配置决定注入哪家云服务商的 SDK。\n\n\n\n\n面试回答模板建议（如何把这句话说出高级感）\n\n“我认为不能把 IoC 仅仅理解为‘Spring 帮我 new 对象’，它的本质是软件架构控制权的反转与依赖解耦。\n在传统面向对象中，类内部主动创建依赖，导致代码强耦合且极难做单元测试。而在 Spring 中，对象的生命周期以及它们之间的依赖图谱装配，完全交由 IoC 容器统一调度。\n容器主要通过构造器注入（推荐）、字段注入或 Setter 注入等手段将抽象接口的具体实现按需注入进来。这样业务层就真正做到了**‘面向接口编程’**，既降低了模块间耦合，又方便我们在单测时注入 Mock 对象，或者在生产环境下无侵入地插拔替换不同的底层实现。”\n\n\n"
   },
   "errors": []
 }
