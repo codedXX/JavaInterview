@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="用一张引用图理解 Java 垃圾回收：GC 是什么、为什么需要 GC，以及一段 30 秒面试回答。适合基础复习，可离线阅读。">
+<title>Java GC · 面试速记</title>
+<style>
+:root{--ink:#20344d;--muted:#596c80;--blue:#245eb1;--teal:#117d73;--line:#dce5ed;--paper:#f3f6fa;--white:#fff;--soft:#eaf3ff;--green:#eef8f5;--amber:#845217}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:78px}body{margin:0;color:var(--ink);background:var(--paper);font:16px/1.85 "Microsoft YaHei","PingFang SC",sans-serif}a{color:var(--blue);text-underline-offset:4px}button{font:inherit;cursor:pointer}a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--teal);outline-offset:4px}button:disabled{cursor:default;opacity:.5}.wrap{max-width:960px;margin:auto;padding:0 28px}.masthead{display:flex;align-items:center;justify-content:space-between;padding-top:25px;font-size:12px;color:var(--muted)}.brand{display:flex;align-items:center;gap:9px;font-weight:700;letter-spacing:.05em}.logo{background:var(--blue);color:white;border-radius:7px;width:29px;height:29px;display:grid;place-items:center;font:700 18px Georgia,serif}.hero{padding-top:45px;padding-bottom:29px}.eyebrow{color:var(--teal);font-size:12px;letter-spacing:.12em;font-weight:700}h1{font-size:44px;line-height:1.35;letter-spacing:-.04em;margin:12px 0 16px}h1 em{font-style:normal;color:var(--blue)}.hero p{margin:0;color:var(--muted);font-size:15px}.hero-bottom{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:24px}.reading{font-size:12px;color:var(--muted)}.jump{font-size:13px;font-weight:700;text-decoration:none}.nav{position:sticky;top:0;z-index:10;background:#f3f6faf5;border-top:1px solid var(--line);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}.nav .wrap{display:flex;gap:30px;padding-top:12px;padding-bottom:12px}.nav a{font-size:13px;text-decoration:none;font-weight:700}.chapter{background:var(--white);border:1px solid var(--line);border-radius:12px;margin-top:22px;padding:29px 32px}.section-head{display:flex;align-items:center;gap:12px;margin-bottom:17px}.step{font:13px Consolas,monospace;color:var(--blue);background:var(--soft);padding:5px 8px;border-radius:5px}h2{font-size:22px;line-height:1.5;margin:0}h3{font-size:16px;margin:0 0 6px}p{margin:12px 0}.definition{font-size:21px;line-height:1.85;margin:0}.definition strong{color:var(--teal)}.note{font-size:13px;color:var(--muted)}.memory-line{margin-top:18px;background:var(--green);border-left:3px solid var(--teal);padding:12px 17px;font-size:14px}.reasons{display:grid;grid-template-columns:1fr 1fr;gap:25px}.reason{padding-left:16px;border-left:2px solid var(--line)}.reason p{font-size:14px;margin:6px 0 0;color:var(--muted)}.cost{border-top:1px solid var(--line);margin-top:23px;padding-top:16px;font-size:13px;color:var(--muted)}code{font:14px/1.7 Consolas,"Cascadia Code",monospace;background:#edf2f8;padding:2px 5px;border-radius:4px}pre{overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere;padding:18px 21px;background:var(--ink);color:#eef5ff;border-radius:8px;margin:17px 0}pre code{background:none;padding:0;color:inherit}.comment{color:#b9cbdc}.demo{margin-top:20px;border:1px solid var(--line);border-radius:9px;overflow:hidden}.demo-top{padding:13px 19px;background:#f8fafd;display:flex;justify-content:space-between;gap:14px;align-items:center;font-size:12px}.demo-label{font-weight:700}.status{color:var(--teal);font-weight:700}.graph{display:grid;grid-template-columns:1fr 50px 1fr 50px 1.25fr;align-items:center;padding:27px 24px;gap:0}.root,.refs,.object{text-align:center}.root{padding:15px 6px;border:1px solid #cad9e7;border-radius:7px;background:#f8fafd;font:700 15px Consolas,monospace}.root small{display:block;font:11px/1.8 "Microsoft YaHei",sans-serif;color:var(--muted)}.refs{display:grid;gap:10px}.ref{font:700 16px/1.8 Consolas,monospace;background:var(--soft);border:1px solid #cadcf5;border-radius:5px;padding:3px 7px}.arrow{color:var(--blue);text-align:center;font-size:26px;transition:opacity .2s}.arrow-pair{display:grid;gap:9px}.arrow-pair span{line-height:1.4}.object{border:2px solid var(--teal);border-radius:8px;padding:16px 6px;background:var(--green);transition:background .2s,border-color .2s}.object strong{font:700 16px Consolas,monospace;display:block}.object small{font-size:11px;color:var(--teal)}.ref.cut{color:var(--muted);background:#f6f7f9;border-style:dashed;text-decoration:line-through}.arrow.cut{opacity:.18}.object.unreachable{border-color:#b58b55;background:#fff8ed}.object.unreachable small{color:var(--amber)}.object.reclaimed{border:2px dashed #a5b3c1;background:#f3f6fa}.object.reclaimed small{color:var(--muted)}.demo-bottom{padding:0 20px 20px}.demo-message{font-size:14px;min-height:52px;margin:0 0 15px}.controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.button{border:1px solid var(--blue);background:var(--blue);color:white;font-size:13px;font-weight:700;border-radius:6px;padding:8px 14px}.button.secondary{color:var(--blue);background:white;border-color:#b9cadd}.demo-disclaimer{font-size:11px;color:var(--muted);margin:13px 0 0}.answer{padding:21px 24px;background:var(--soft);border-radius:8px;font-size:16px;border:1px solid #d5e2f6}.answer p:first-child{margin-top:0}.answer p:last-child{margin-bottom:0}.answer strong{color:var(--blue)}.keywords{font-size:13px;color:var(--teal);margin:16px 0 0;font-weight:700}.recall{margin-top:20px;border-top:1px solid var(--line);padding-top:17px}.recall summary{font-size:14px;font-weight:700;cursor:pointer}.recall p{font-size:14px}.questions{padding:24px 0 8px}.questions h2{font-size:19px;margin:0 0 14px}.question{border-bottom:1px solid var(--line);padding:15px 0}.question summary{cursor:pointer;font-size:14px;font-weight:700}.question p{font-size:14px;margin:11px 0 0;color:var(--muted)}footer{padding:27px 0 38px;font-size:12px;color:var(--muted)}.foot-row{display:flex;justify-content:space-between;gap:15px}.sources{margin-top:17px;font-size:11px}.sources summary{cursor:pointer}.sources a{display:inline-block;margin-right:15px}.skip{position:absolute;top:-100px;background:white;padding:10px;z-index:20}.skip:focus{top:8px}
+@media(max-width:640px){.wrap{padding-left:18px;padding-right:18px}.masthead{padding-top:18px}.hero{padding-top:30px}h1{font-size:33px}.hero-bottom{align-items:flex-start}.nav .wrap{gap:0;justify-content:space-between}.nav a{font-size:12px}.chapter{padding:23px 20px;margin-top:17px}h2{font-size:20px}.definition{font-size:18px}.reasons{grid-template-columns:1fr;gap:19px}.graph{grid-template-columns:1fr 24px .75fr 24px 1.15fr;padding:23px 12px}.root{font-size:12px}.root small{font-size:10px}.ref{font-size:13px}.arrow{font-size:21px}.object strong{font-size:13px}.object small{font-size:10px}.demo-top{padding:12px;font-size:11px}.demo-bottom{padding:0 13px 16px}.demo-message{min-height:79px}.answer{padding:17px;font-size:15px}.foot-row{display:block}.foot-row a{display:inline-block;margin-top:9px}pre{padding:15px}pre code{font-size:12px}.keywords{font-size:12px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+@media print{@page{size:A4;margin:16mm}body{background:white;font-size:11pt}.wrap{max-width:none;padding:0}.nav,.controls,.jump,.skip,.hero-bottom,.recall,.sources,.foot-row a{display:none}.masthead{padding-top:0}.hero{padding-top:20px}h1{font-size:27pt}.chapter{border:0;border-top:1px solid var(--line);border-radius:0;padding:20px 0;margin:12px 0}.section-head{break-after:avoid}.demo,.answer,.reason,.question{break-inside:avoid}.question p{display:block!important}details::details-content{content-visibility:visible!important}.questions{padding-top:20px}pre{background:#edf2f8;color:var(--ink)}.demo-disclaimer{display:none}footer{padding-bottom:0}*{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
+</style>
+</head>
+<body>
+<a class="skip" href="#what">跳到正文</a>
+<header class="wrap">
+  <div class="masthead"><div class="brand"><span class="logo" aria-hidden="true">J</span> JavaInterview</div><span>JVM · 基础面试题</span></div>
+  <div class="hero"><div class="eyebrow">先理解，再复述</div><h1>Java GC，<br>帮你回收<em>用不到的对象。</em></h1><p>GC 是什么？为什么需要它？这一页，把两个问题讲清楚。</p><div class="hero-bottom"><span class="reading">约 5 分钟 · 无需 GC 基础 · 可离线复习</span><a class="jump" href="#answer">直接看面试回答 ↗</a></div></div>
+</header>
+<nav class="nav" aria-label="页面目录"><div class="wrap"><a href="#what">理解 GC</a><a href="#why">为什么需要</a><a href="#example">看个例子</a><a href="#answer">面试怎么说</a></div></nav>
+<main class="wrap">
+  <section class="chapter" id="what"><div class="section-head"><span class="step">01</span><h2>GC 是什么？</h2></div><p class="definition">GC = Garbage Collection，垃圾回收。<br>由 JVM 自动回收<strong>不再可达的对象占用的内存</strong>，让空间可以再次使用。</p><p class="note">先记两个词：JVM 是运行 Java 程序的虚拟机；堆是存放对象的主要内存区域，也是 GC 的主要工作区域。</p><div class="memory-line"><strong>“垃圾”不是没用的代码。</strong>这里说的是：程序沿着有效引用，已经找不到的对象。</div></section>
+  <section class="chapter" id="why"><div class="section-head"><span class="step">02</span><h2>为什么需要 GC？</h2></div><div class="reasons"><div class="reason"><h3>内存有限，要重复利用</h3><p>程序不断创建对象。旧对象用完后，如果内存一直不释放，新对象最终就没有空间可用了。</p></div><div class="reason"><h3>交给 JVM，减少手动管理出错</h3><p>开发者不用逐个释放对象内存，减少忘记释放、重复释放等问题，更专注于业务逻辑。</p></div></div><p class="cost"><strong>但 GC 不是免费的：</strong>它会消耗 CPU，某些阶段还会暂停应用线程（STW）。自动回收，也不代表内存永远够用。</p></section>
+  <section class="chapter" id="example"><div class="section-head"><span class="step">03</span><h2>对象什么时候变成“垃圾”？</h2></div><p>主要看<strong>能不能从 GC Roots 沿引用找到它</strong>，这叫“可达性分析”。GC Roots 可以理解为查找起点，例如线程中仍然有效的局部变量引用。</p><pre><code>Object a = new Object();
+Object b = a;  <span class="comment">// a、b 指向同一个对象</span>
+a = null;     <span class="comment">// 只断开 a，对象还有 b 引用</span>
+use(b);       <span class="comment">// 示意：后面还要通过 b 使用它</span></code></pre>
+    <div class="demo"><div class="demo-top"><span class="demo-label">引用示意 · 试着断开两条引用</span><span class="status" id="status">0 / 3 · 对象仍可达</span></div><div class="graph" role="img" id="graph" aria-label="从 GC Roots 经 a 和 b 都能找到同一个对象，对象仍可达"><div class="root">GC Roots<small>查找的起点</small></div><div class="arrow" aria-hidden="true">→</div><div class="refs"><span class="ref" id="ref-a">a</span><span class="ref" id="ref-b">b</span></div><div class="arrow-pair" aria-hidden="true"><span class="arrow" id="arrow-a">→</span><span class="arrow" id="arrow-b">→</span></div><div class="object" id="object"><strong id="object-title">Object</strong><small id="object-caption">仍需保留</small></div></div><div class="demo-bottom"><p class="demo-message" id="demo-message" aria-live="polite">a 和 b 都能找到这个对象。点击下方按钮，观察引用断开后会发生什么。</p><div class="controls"><button class="button" id="next" type="button">断开 a 引用</button><button class="button secondary" id="reset" type="button">重置演示</button></div><p class="demo-disclaimer">简化模型：只考虑图中的普通强引用，假设引用在断开前仍有效，且没有其他引用。演示不代表 JVM 的实际回收时机。</p></div></div>
+    <p class="note"><strong>关键区别：</strong>不可达 → 可以被回收；不等于“马上已经被回收”。对象之间即使互相引用，只要从 GC Roots 无法到达，仍可能被回收。</p>
+  </section>
+  <section class="chapter" id="answer"><div class="section-head"><span class="step">04</span><h2>面试时，30 秒这样说</h2></div><div class="answer"><p>GC 是 Java 的<strong>自动垃圾回收机制</strong>，主要负责回收堆中不再可达的对象占用的内存。</p><p>因为<strong>内存有限</strong>，程序又会不断创建对象，所以需要回收不用的空间，让它能被再次利用；同时，自动回收可以减少手动管理内存的错误。</p><p>JVM 主要通过<strong>可达性分析</strong>判断对象是否需要保留。不过 GC 有性能开销，也不能保证程序不会出现内存泄漏或内存溢出。</p></div><p class="keywords">记忆顺序：自动回收 → 内存复用 → 可达性 → 有成本、有边界</p><details class="recall"><summary>合上答案，自测一句：有 GC，为什么还会内存泄漏？</summary><p>因为<strong>业务已经不用的对象，可能还被集合等长期引用</strong>。GC 看到它仍可达，就不能回收。例如长期存活的缓存不断加入对象，却从不清理。</p></details></section>
+  <section class="questions" aria-labelledby="pitfalls"><h2 id="pitfalls">最后，别答错这 3 个点</h2><details class="question"><summary>设成 null，就会立刻回收吗？</summary><p>不会。设成 null 只断开一条引用，其他引用可能还在。即使对象已经不可达，也要等到适当的回收时机。<code>System.gc()</code> 也只是请求，不能保证立即回收指定对象。</p></details><details class="question"><summary>有 GC，就不会内存溢出了吗？</summary><p>不是。仍被引用的对象太多，或堆空间不够，都可能导致 <code>OutOfMemoryError</code>（OOM，内存不足错误）。内存泄漏是“不用的对象仍被意外持有”；内存溢出是“分配内存无法满足需求”。泄漏可能导致溢出。</p></details><details class="question"><summary>文件、数据库连接也交给 GC 吗？</summary><p>不能依赖 GC 及时释放这些资源。文件流、数据库连接应及时关闭，适用时用 <code>try-with-resources</code>。GC 回收对象内存，不能替代资源生命周期管理。</p></details></section>
+  <footer><div class="foot-row"><span>先把这页讲顺，再学回收算法与收集器。</span><a href="Java8堆面试速记.html">复习上一节：Java 堆 →</a></div><details class="sources"><summary>参考资料与学习范围</summary><p>面向 Java / HotSpot 的 GC 入门。示意图省略特殊引用、终结机制与 JIT 优化；具体回收时机及算法依收集器而异。</p><a href="https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-2.html#jvms-2.5.3">JVM 规范：堆与自动存储管理</a><a href="https://docs.oracle.com/javase/8/docs/technotes/guides/vm/gctuning/introduction.html">Oracle：垃圾回收介绍</a><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/System.html#gc--">System.gc() API</a></details></footer>
+</main>
+<script>
+(() => {
+  const byId = id => document.getElementById(id);
+  let step = 0;
+  const messages = [
+    'a 和 b 都能找到这个对象。点击下方按钮，观察引用断开后会发生什么。',
+    'a = null：只断开了 a。b 仍然能找到对象，所以对象仍需保留。',
+    'b = null：假设没有其他引用，现在对象已不可达，可以被回收，但内存还没有立即释放。',
+    '模拟一次回收后：对象占用的空间可再次使用。实际何时执行 GC，由 JVM 和收集器策略决定。'
+  ];
+  const labels = ['断开 a 引用', '断开 b 引用', '模拟 GC 回收', '演示完成'];
+  const statuses = ['对象仍可达', '对象仍可达', '不可达，等待回收', '空间可再次使用'];
+  function render() {
+    ['a','b'].forEach((ref, index) => {
+      byId('ref-' + ref).classList.toggle('cut', step > index);
+      byId('arrow-' + ref).classList.toggle('cut', step > index);
+    });
+    byId('object').classList.toggle('unreachable', step === 2);
+    byId('object').classList.toggle('reclaimed', step === 3);
+    byId('object-title').textContent = step === 3 ? '空闲空间' : 'Object';
+    byId('object-caption').textContent = step < 2 ? '仍需保留' : step === 2 ? '可以被回收' : '可供新对象使用';
+    byId('status').textContent = step + ' / 3 · ' + statuses[step];
+    byId('demo-message').textContent = messages[step];
+    byId('graph').setAttribute('aria-label', messages[step]);
+    byId('next').textContent = labels[step];
+    byId('next').disabled = step === 3;
+  }
+  byId('next').addEventListener('click', () => { step = Math.min(3, step + 1); render(); });
+  byId('reset').addEventListener('click', () => { step = 0; render(); });
+  let printState = [];
+  window.addEventListener('beforeprint', () => {
+    printState = [...document.querySelectorAll('details')].map(element => [element, element.open]);
+    printState.forEach(([element]) => { element.open = true; });
+  });
+  window.addEventListener('afterprint', () => { printState.forEach(([element, open]) => { element.open = open; }); });
+})();
+</script>
+</body>
+</html>
